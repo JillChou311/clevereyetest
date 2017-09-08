@@ -28,6 +28,7 @@ class CameraPageLocators(object):
     CONNECT_INFO = (By.ID,'com.gemteks.clevereyes:id/tv_error_description')
     CVR_BUTTOM = (By.ID,'com.gemteks.clevereyes:id/btn_cvr_port')
     CAMERA_SETTING = (By.ID,'com.gemteks.clevereyes:id/llMyDeviceManage')
+    REFRESH_PAGE =(By.ID,'com.gemteks.clevereyes:id/imvRefreshDevice')
 
 class CVRPageLocators(object):
     PLAY_CVR_BUTTOM = (By.ID,'com.gemteks.clevereyes:id/cvr_timebar_indicator_date')

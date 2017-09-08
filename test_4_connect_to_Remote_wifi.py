@@ -49,54 +49,8 @@ class wifi_test(unittest.TestCase):
         sleep(2)
         self.driver.quit()
 
-    # Test script
-    # def test_1_wifiSet(self):
-    #     elem = self.driver.find_elements_by_id("com.android.settings:id/title")
-    #     for e in elem:
-    #         try:
-    #             aaa = e.text.encode("GBK", 'ignore')
-    #         except Exception, c:
-    #             print c
-    #         m = re.match(r'Wi', aaa)
-    #         if m:
-    #             e.click()
-    #             sleep(2)
-    #             break
-    #
-    #     self._ScanSSID("MyVITA_906E", 'android:id/title', 1000, 200)
-    #
-    #     elem = self.driver.find_elements_by_class_name('android.widget.TextView')
-    #     connect_status_fail = True
-    #     for e in elem:
-    #         if e.text == 'Connected':
-    #             connect_status_fail = False
-    #             print 'local already connect.'
-    #             break
-    #         else:
-    #             continue
-    #
-    #     if connect_status_fail:
-    #         element = self.driver.find_elements_by_class_name("android.widget.Button")
-    #         for e in element:
-    #             if e.text == 'Connect':
-    #                 e.click()
-    #
-    #         sleep(5)
-    #         self._ScanSSID("MyVITA_906E", 'android:id/title', 1000, 200)
-    #         elem = self.driver.find_elements_by_class_name('android.widget.TextView')
-    #         connect_status = False
-    #         for e in elem:
-    #             if e.text == 'Connected':
-    #                 connect_status = True
-    #                 break
-    #             else:
-    #                 continue
-    #
-    #         assert connect_status,'Connect to local fail.'
-    #
-    #
 
-    def test_2_wifi_closed(self):
+    def test_1_wifi_closed(self):
         os.system('adb -s F8AZCY230515 shell am start -n io.appium.settings/.Settings -e wifi off')
 
 

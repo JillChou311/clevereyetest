@@ -104,20 +104,25 @@ class CameraPage(BasePage):
             if elem.text == u'• online':
                 return True
             else:
-                for i in range(1,4):
-                    sleep(10)
-                    print '\nwait 10 sec'
-                    if elem.text == u'• online':
-                        return True
-                    else:
-                        continue
+                onLine = False
+                for j in range(0,2):
+                    element = self.driver.find_element(*CameraPageLocators.REFRESH_PAGE)
+                    element.click()
+                    for i in range(1,4):
+                        sleep(10)
+                        print '\nwait 10 sec'
+                        if elem.text == u'• online':
+                            onLine = True
+                            return onLine
+                        else:
+                            continue
                 print 'device offline'
                 timestr2 = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
                 self.driver.get_screenshot_as_file("screen"+timestr2+".png")
                 print "Pic record on"+"screen"+timestr2+".png"
                 return False
 
-        except NoSuchElementException:
+        except :
             timestr2 = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
             self.driver.get_screenshot_as_file("screen"+timestr2+".png")
             print "Pic record on"+"screen"+timestr2+".png"
