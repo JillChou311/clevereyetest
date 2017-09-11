@@ -47,6 +47,16 @@ class LiteNet_test(unittest.TestCase):
             result = False
         else:
             result = True
+        if result:
+            result = True
+        else:
+            camera_page.click_back_button()
+            if camera_page.check_my_camera_logo_appear():
+                camera_page.click_live_view()
+                if camera_page.check_internet_status():
+                    result = False
+                else:
+                    result = True
         assert result,'connect fail'
 
         camera_page.click_tital_for_detail()

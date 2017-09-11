@@ -47,6 +47,17 @@ class LiteNet_test(unittest.TestCase):
             result = False
         else:
             result = True
+
+        if result:
+            result = True
+        else:
+            camera_page.click_back_button()
+            if camera_page.check_my_camera_logo_appear():
+                camera_page.click_live_view()
+                if camera_page.check_internet_status():
+                    result = False
+                else:
+                    result = True
         assert result,'connect fail'
 
         camera_page.click_tital_for_detail()
@@ -72,6 +83,17 @@ class LiteNet_test(unittest.TestCase):
             result = False
         else:
             result = True
+
+        if result:
+            result = True
+        else:
+            camera_page.click_back_button()
+            cvr_page.click_play_cvr_buttom()
+            if camera_page.check_internet_status():
+                result = False
+            else:
+                result = True
+
         assert result, 'connect fail'
 
         cvr_page.click_more_detail()

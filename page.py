@@ -128,6 +128,9 @@ class CameraPage(BasePage):
             self.driver.get_screenshot_as_file("screen"+timestr2+".png")
             print "Pic record on"+"screen"+timestr2+".png"
             return False
+    def click_back_button(self):
+        element = self.driver.find_element(*CameraPageLocators.BACK_BUTTON)
+        element.click()
 
     def click_tital_for_detail(self):
         element = self.driver.find_element(*CameraPageLocators.DETAIL_TITAL)
