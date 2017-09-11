@@ -3,6 +3,7 @@
 import os
 import unittest
 import re
+import time
 
 from selenium import webdriver
 from appium import webdriver
