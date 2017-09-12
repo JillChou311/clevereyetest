@@ -99,8 +99,19 @@ class CameraPage(BasePage):
         elem.click()
 
     def check_my_camera_logo_appear(self):
+
+        for i in range(0,3):
+            try:
+                element = self.driver.find_element(*CameraPageLocators.CAMERA_TITAL)
+            except NoSuchElementException:
+                if i == 2:
+                    print 'wait login for too long'
+                    return False
+                print 'wait 10 sec for login'
+                sleep(10)
+
+
         try:
-            element = self.driver.find_element(*CameraPageLocators.CAMERA_TITAL)
             elem = self.driver.find_element(*CameraPageLocators.CAMERA_ONLINE_STATUE)
             if elem.text == u'• online':
                 return True

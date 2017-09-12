@@ -24,7 +24,7 @@ class CleverEyes_test(unittest.TestCase):
         # desired_caps['platformVersion'] = '4.4.3'
         # desired_caps['deviceName'] = '015d321ff553f615'
         # desired_caps['udid'] = '015d321ff553f615'
-        
+
         desired_caps['appPackage'] = 'com.gemteks.clevereyes'
         desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
         desired_caps['platformName'] = 'Android'
