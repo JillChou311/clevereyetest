@@ -11,19 +11,18 @@ PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
 
-
-class LiteNet_test(unittest.TestCase):
+class CleverEyes_test(unittest.TestCase):
     """A sample test class to show how page object works"""
 
     def setUp(self):
       #  sleep(50)
         desired_caps = {}
-##        desired_caps['appPackage'] = 'com.gemteks.clevereyes'
-##        desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
-##        desired_caps['platformName'] = 'Android'
-##        desired_caps['platformVersion'] = '4.4.3'
-##        desired_caps['deviceName'] = '015d321ff553f615'
-##        desired_caps['udid'] = '015d321ff553f615'
+        # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
+        # desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
+        # desired_caps['platformName'] = 'Android'
+        # desired_caps['platformVersion'] = '4.4.3'
+        # desired_caps['deviceName'] = '015d321ff553f615'
+        # desired_caps['udid'] = '015d321ff553f615'
         
         desired_caps['appPackage'] = 'com.gemteks.clevereyes'
         desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
@@ -58,7 +57,7 @@ class LiteNet_test(unittest.TestCase):
                 else:
                     result = True
         assert result,'connect fail'
-
+        assert camera_page.check_bps_appear(),'wait too long for video'
         camera_page.click_tital_for_detail()
         assert camera_page.bps_fps_error(),'Can’t access bps & fps'
 
@@ -67,5 +66,5 @@ class LiteNet_test(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromTestCase(LiteNet_test)
+    suite = unittest.TestLoader().loadTestsFromTestCase(CleverEyes_test)
     unittest.TextTestRunner(verbosity=2).run(suite)

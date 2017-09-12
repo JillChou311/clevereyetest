@@ -111,7 +111,7 @@ class CameraPage(BasePage):
                     element.click()
                     for i in range(1,4):
                         sleep(10)
-                        print '\nwait 10 sec'
+                        print '\nwait 10 sec for camera online'
                         if elem.text == u'• online':
                             onLine = True
                             return onLine
@@ -159,7 +159,15 @@ class CameraPage(BasePage):
         except NoSuchElementException:
             return False
 
-
+    def check_bps_appear(self):
+        for i in range(0, 2):
+            try:
+                elem = self.driver.find_element(*CameraPageLocators.BPS_INFO)
+                return True
+            except NoSuchElementException:
+                print 'wait 10 sec'
+                sleep(10)
+        return False
 
     def bps_fps_error(self):
         try:
