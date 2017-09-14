@@ -106,9 +106,12 @@ class CameraPage(BasePage):
             except NoSuchElementException:
                 if i == 2:
                     print 'wait login for too long'
+                    timestr2 = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+                    self.driver.get_screenshot_as_file("screen" + timestr2 + ".png")
+                    print "Pic record on" + "screen" + timestr2 + ".png"
                     return False
-                print 'wait 10 sec for login'
-                sleep(10)
+                print 'wait 15 sec for login'
+                sleep(15)
 
 
         try:
@@ -176,8 +179,11 @@ class CameraPage(BasePage):
                 elem = self.driver.find_element(*CameraPageLocators.BPS_INFO)
                 return True
             except NoSuchElementException:
-                print 'wait 10 sec'
-                sleep(10)
+                print 'wait 15 sec for bps appear'
+                sleep(15)
+        timestr2 = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+        self.driver.get_screenshot_as_file("screen" + timestr2 + ".png")
+        print "Pic record on" + "screen" + timestr2 + ".png"
         return False
 
     def bps_fps_error(self):
@@ -268,6 +274,9 @@ class Camera_setting_page(BasePage):
             print elem[7].text + ':' + elem[8].text
             return True
         except:
+            timestr2 = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+            self.driver.get_screenshot_as_file("screen" + timestr2 + ".png")
+            print "Pic record on" + "screen" + timestr2 + ".png"
             return False
 
     def rename_camera(self,newname):
