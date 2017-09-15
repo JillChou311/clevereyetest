@@ -104,15 +104,19 @@ class CameraPage(BasePage):
             try:
                 element = self.driver.find_element(*CameraPageLocators.CAMERA_TITAL)
             except NoSuchElementException:
-                if i == 2:
-                    print 'wait login for too long'
-                    timestr2 = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
-                    self.driver.get_screenshot_as_file("screen" + timestr2 + ".png")
-                    print "Pic record on" + "screen" + timestr2 + ".png"
-                    return False
+                try:
+                    element = self.driver.find_element(*LoginPageLocators.SIGNIN_BUTTON)
+                    element.click()
+                    print 'click login again'
+                except NoSuchElementException:
+                    if i == 2:
+                        print 'wait login for too long'
+                        timestr2 = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+                        self.driver.get_screenshot_as_file("screen" + timestr2 + ".png")
+                        print "Pic record on" + "screen" + timestr2 + ".png"
+                        return False
                 print 'wait 15 sec for login'
                 sleep(15)
-
 
         try:
             elem = self.driver.find_element(*CameraPageLocators.CAMERA_ONLINE_STATUE)

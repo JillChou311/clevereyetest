@@ -84,7 +84,7 @@ class wifi_test(unittest.TestCase):
                 if e.text == 'Connect':
                     e.click()
 
-            sleep(5)
+            sleep(15)
             self._ScanSSID("DropAP-0bb068", 'android:id/title', 1000, 200)
             elem = self.driver.find_elements_by_class_name('android.widget.TextView')
             connect_status = False
