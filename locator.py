@@ -20,6 +20,7 @@ class LoginPageLocators(object):
 
 class CameraPageLocators(object):
     CAMERA_TITAL = (By.ID,'com.gemteks.clevereyes:id/tvAbTitle')
+    CAMERA_NAME = (By.ID,'com.gemteks.clevereyes:id/title_name')
     CAMERA_ONLINE_STATUE = (By.ID,'com.gemteks.clevereyes:id/tvDeviceStatus')
     CAMERA_LIVE_VIEW = (By.ID, 'com.gemteks.clevereyes:id/imvCameraIcon')
     DETAIL_TITAL = (By.ID,'com.gemteks.clevereyes:id/title_name')

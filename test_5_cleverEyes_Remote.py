@@ -20,16 +20,22 @@ class CleverEyes_test(unittest.TestCase):
         # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
         # desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
         # desired_caps['platformName'] = 'Android'
-        # desired_caps['platformVersion'] = '4.4.3'
-        # desired_caps['deviceName'] = '015d321ff553f615'
-        # desired_caps['udid'] = '015d321ff553f615'
-        
+        # desired_caps['platformVersion'] = '5.0'
+        # desired_caps['deviceName'] = 'E9AZCY15Z724'
+        # desired_caps['udid'] = 'E9AZCY15Z724'
+
         desired_caps['appPackage'] = 'com.gemteks.clevereyes'
         desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
         desired_caps['platformName'] = 'Android'
         desired_caps['platformVersion'] = '6.0.1'
         desired_caps['deviceName'] = 'F8AZCY230515'
         desired_caps['udid'] = 'F8AZCY230515'
+
+        # desired_caps['app'] = PATH('app-clevereyes-release-6.2.50.apk')
+        # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
+        # desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
+        # desired_caps['platformName'] = 'Android'
+        # desired_caps['deviceName'] = 'Android Emulator'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         self.driver.implicitly_wait(15)
 
@@ -41,21 +47,27 @@ class CleverEyes_test(unittest.TestCase):
         assert camera_page.check_my_camera_logo_appear(), 'login fail'
 
         camera_page.click_live_view()
+        if camera_page.check_image_page():
+            True
+        else:
+            camera_page.click_live_view()
 
         if camera_page.check_internet_status():
-            result = False
-        else:
-            result = True
-        if result:
-            result = True
-        else:
             camera_page.click_back_button()
             if camera_page.check_my_camera_logo_appear():
                 camera_page.click_live_view()
+                if camera_page.check_image_page():
+                    True
+                else:
+                    camera_page.click_live_view()
+
                 if camera_page.check_internet_status():
                     result = False
                 else:
                     result = True
+        else:
+            result = True
+
         assert result,'connect fail'
         assert camera_page.check_bps_appear(),'wait too long for video'
         camera_page.click_tital_for_detail()

@@ -190,6 +190,14 @@ class CameraPage(BasePage):
         print "Pic record on" + "screen" + timestr2 + ".png"
         return False
 
+    def check_image_page(self):
+        element = self.driver.find_element(*CameraPageLocators.CAMERA_NAME)
+        if element.text == 'Autotest01':
+            return True
+        else:
+            return False
+
+
     def bps_fps_error(self):
         try:
             elem = self.driver.find_element(*CameraPageLocators.BPS_INFO)
