@@ -51,7 +51,9 @@ class wifi_test(unittest.TestCase):
 
 
     def test_1_wifi_closed(self):
-        os.system('adb -s F8AZCY230515 shell am start -n io.appium.settings/.Settings -e wifi off')
+        print 'do nothing.'
+       # os.system('adb -s F8AZCY230515 shell am start -n io.appium.settings/.Settings -e wifi off')
+
 
 
 
