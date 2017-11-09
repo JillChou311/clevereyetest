@@ -28,9 +28,16 @@ class CleverEyes_test(unittest.TestCase):
         desired_caps['appPackage'] = 'com.gemteks.clevereyes'
         desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '6.0.1'
-        desired_caps['deviceName'] = 'F8AZCY230515'
-        desired_caps['udid'] = 'F8AZCY230515'
+        desired_caps['platformVersion'] = '4.4.2'
+        desired_caps['deviceName'] = 'EAAZCY17E701'
+        desired_caps['udid'] = 'EAAZCY17E701'
+
+        # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
+        # desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
+        # desired_caps['platformName'] = 'Android'
+        # desired_caps['platformVersion'] = '6.0.1'
+        # desired_caps['deviceName'] = 'F8AZCY230515'
+        # desired_caps['udid'] = 'F8AZCY230515'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         self.driver.implicitly_wait(15)
 

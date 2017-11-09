@@ -34,12 +34,12 @@ class wifi_test(unittest.TestCase):
     # initialize
 
     def setUp(self):
-        os.system('adb -s F8AZCY230515 shell am start -n io.appium.settings/.Settings -e wifi on')
+        os.system('adb -s EAAZCY17E701 shell am start -n io.appium.settings/.Settings -e wifi on')
         sleep(50)
         desired_caps = {
             'platformName': 'Android',
-            'platformVersion': '6.0.1',
-            'deviceName': 'F8AZCY230515',
+            'platformVersion': '4.4.2',
+            'deviceName': 'EAAZCY17E701',
             'appPackage': 'com.android.settings',
             'appActivity': 'Settings'
         }
@@ -54,14 +54,9 @@ class wifi_test(unittest.TestCase):
     # Test script
 
     def test_1_wifiSet(self):
-        elem = self.driver.find_elements_by_id("com.android.settings:id/title")
+        elem = self.driver.find_elements_by_id("android:id/title")
         for e in elem:
-            try:
-                aaa = e.text.encode("GBK", 'ignore')
-            except Exception, c:
-                print c
-            m = re.match(r'Wi', aaa)
-            if m:
+            if e.text == u"Wi‑Fi":
                 e.click()
                 sleep(2)
                 break

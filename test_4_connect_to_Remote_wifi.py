@@ -34,13 +34,13 @@ class wifi_test(unittest.TestCase):
 
     def setUp(self):
 
-        desired_caps = {
-            'platformName': 'Android',
-            'platformVersion': '6.0.1',
-            'deviceName': 'F8AZCY230515',
-            'appPackage': 'com.android.settings',
-            'appActivity': 'Settings'
-        }
+        desired_caps = {}
+        desired_caps['appPackage'] = 'com.android.settings'
+        desired_caps['appActivity'] = 'Settings'
+        desired_caps['platformName'] = 'Android'
+        desired_caps['platformVersion'] = '4.4.2'
+        desired_caps['deviceName'] = 'EAAZCY17E701'
+        desired_caps['udid'] = 'EAAZCY17E701'
 
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
@@ -51,7 +51,7 @@ class wifi_test(unittest.TestCase):
 
 
     def test_1_wifi_closed(self):
-        os.system('adb -s F8AZCY230515 shell am start -n io.appium.settings/.Settings -e wifi off')
+        os.system('adb -s EAAZCY17E701 shell am start -n io.appium.settings/.Settings -e wifi off')
 
 
 

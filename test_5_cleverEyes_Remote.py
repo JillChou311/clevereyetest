@@ -17,19 +17,19 @@ class CleverEyes_test(unittest.TestCase):
     def setUp(self):
       #  sleep(50)
         desired_caps = {}
-        # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
-        # desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
-        # desired_caps['platformName'] = 'Android'
-        # desired_caps['platformVersion'] = '5.0'
-        # desired_caps['deviceName'] = 'E9AZCY15Z724'
-        # desired_caps['udid'] = 'E9AZCY15Z724'
-
         desired_caps['appPackage'] = 'com.gemteks.clevereyes'
         desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
         desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '6.0.1'
-        desired_caps['deviceName'] = 'F8AZCY230515'
-        desired_caps['udid'] = 'F8AZCY230515'
+        desired_caps['platformVersion'] = '4.4.2'
+        desired_caps['deviceName'] = 'EAAZCY17E701'
+        desired_caps['udid'] = 'EAAZCY17E701'
+
+        # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
+        # desired_caps['appActivity'] = 'com.gemtek.clevereyes.CleverEyesIPCam'
+        # desired_caps['platformName'] = 'Android'
+        # desired_caps['platformVersion'] = '6.0.1'
+        # desired_caps['deviceName'] = 'F8AZCY230515'
+        # desired_caps['udid'] = 'F8AZCY230515'
 
         # desired_caps['app'] = PATH('app-clevereyes-release-6.2.50.apk')
         # desired_caps['appPackage'] = 'com.gemteks.clevereyes'
