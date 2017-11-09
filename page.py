@@ -120,7 +120,7 @@ class CameraPage(BasePage):
 
         try:
             elem = self.driver.find_element(*CameraPageLocators.CAMERA_ONLINE_STATUE)
-            if elem.text == u'• online':
+            if elem.text == u'• 上線':
                 return True
             else:
                 onLine = False
@@ -130,7 +130,7 @@ class CameraPage(BasePage):
                     for i in range(1,4):
                         sleep(10)
                         print '\nwait 10 sec for camera online'
-                        if elem.text == u'• online':
+                        if elem.text == u'• 上線':
                             onLine = True
                             return onLine
                         else:

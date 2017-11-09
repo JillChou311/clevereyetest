@@ -66,7 +66,7 @@ class wifi_test(unittest.TestCase):
         elem = self.driver.find_elements_by_class_name('android.widget.TextView')
         connect_status_fail = True
         for e in elem:
-            if e.text == 'Connected':
+            if e.text == u'已連線':
                 connect_status_fail = False
                 print 'local already connect.'
                 break
@@ -76,7 +76,7 @@ class wifi_test(unittest.TestCase):
         if connect_status_fail:
             element = self.driver.find_elements_by_class_name("android.widget.Button")
             for e in element:
-                if e.text == 'Connect':
+                if e.text == u'連線':
                     e.click()
 
             sleep(15)
@@ -84,7 +84,7 @@ class wifi_test(unittest.TestCase):
             elem = self.driver.find_elements_by_class_name('android.widget.TextView')
             connect_status = False
             for e in elem:
-                if e.text == 'Connected':
+                if e.text == u'已連線':
                     connect_status = True
                     break
                 else:
