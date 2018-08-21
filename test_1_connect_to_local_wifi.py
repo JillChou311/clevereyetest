@@ -38,8 +38,8 @@ class wifi_test(unittest.TestCase):
         sleep(50)
         desired_caps = {
             'platformName': 'Android',
-            'platformVersion': '4.4.2',
-            'deviceName': 'EAAZCY17E701',
+            'platformVersion':'5.0',
+            'deviceName':'EAAZCY17F178',
             'appPackage': 'com.android.settings',
             'appActivity': 'Settings'
         }
@@ -54,7 +54,8 @@ class wifi_test(unittest.TestCase):
     # Test script
 
     def test_1_wifiSet(self):
-        os.system('adb -s EAAZCY17E701 shell am start -n io.appium.settings/.Settings -e wifi off')
+        sleep(2)
+        # os.system('adb -s EAAZCY17E701 shell am start -n io.appium.settings/.Settings -e wifi off')
         # elem = self.driver.find_elements_by_id("android:id/title")
         # for e in elem:
         #     if e.text == u"Wi‑Fi":
